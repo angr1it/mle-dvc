@@ -1,0 +1,15 @@
+# params.yaml
+
+index_col: 'customer_id'        # Индексный столбец
+target_col: 'target'            # Целевая переменная
+one_hot_drop: 'if_binary'       # Параметр для OneHotEncoder (отбрасывание одного из бинарных значений)
+auto_class_weights: 'Balanced'  # Автоматический баланс весов классов в CatBoostClassifier
+
+# Параметры для разбиения на фолды в StratifiedKFold
+n_splits: 5                     # Количество разбиений для кросс-валидации
+n_jobs: -1                      # Количество процессов, используемых для кросс-валидации (-1 для всех доступных ядер)
+
+# Гиперпараметры для оценки модели
+metrics:
+  - f1                          # Метрика F1
+  - roc_auc                     # Метрика ROC-AUC
