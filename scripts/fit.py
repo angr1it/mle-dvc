@@ -43,7 +43,9 @@ def fit_model():
         verbose_feature_names_out=False,
     )
 
-    model = CatBoostClassifier(auto_class_weights=params["auto_class_weights"])
+    model = CatBoostClassifier(
+        auto_class_weights=params["auto_class_weights"],
+    )
 
     pipeline = Pipeline([("preprocessor", preprocessor), ("model", model)])
     pipeline.fit(data, data[params["target_col"]])
