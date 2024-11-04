@@ -43,9 +43,10 @@ def fit_model():
         verbose_feature_names_out=False,
     )
 
-    # model = CatBoostClassifier(auto_class_weights=params["auto_class_weights"])
-    model = LogisticRegression(penalty=params["penalty"], C=params["regression_c"])
-    
+    model = CatBoostClassifier(
+        auto_class_weights=params["auto_class_weights"],
+    )
+
     pipeline = Pipeline([("preprocessor", preprocessor), ("model", model)])
     pipeline.fit(data, data[params["target_col"]])
     # сохраните обученную модель в models/fitted_model.pkl
