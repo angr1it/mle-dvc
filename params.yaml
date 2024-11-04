@@ -3,7 +3,9 @@
 index_col: 'customer_id'        # Индексный столбец
 target_col: 'target'            # Целевая переменная
 one_hot_drop: 'if_binary'       # Параметр для OneHotEncoder (отбрасывание одного из бинарных значений)
-auto_class_weights: 'Balanced'  # Автоматический баланс весов классов в CatBoostClassifier
+
+penalty: 'l2'
+regression_c: 1
 
 # Параметры для разбиения на фолды в StratifiedKFold
 n_splits: 5                     # Количество разбиений для кросс-валидации
